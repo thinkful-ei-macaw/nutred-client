@@ -1,31 +1,51 @@
 import React from "react";
 
 export default class InterestPage extends React.Component {
+  static defaultProps = {
+    onRegistrationSuccess: () => {},
+    history: {
+      push: () => {},
+    },
+  };
+
+  state = { error: null };
+
+  handleRegistrationContSuccess = (user) => {
+    const { history } = this.props;
+    history.push("/biometricgather");
+  };
+
+  handleSubmit = (ev) => {
+    ev.preventDefault();
+    const { full_name, age, user_name, password } = ev.target;
+
+    console.log("registration cont form submitted");
+    console.log({ full_name, age, user_name, password });
+
+    // needs to handle the boxes that have been checked and their values back into database
+    this.handleRegistrationContSuccess();
+  };
+
   render() {
     return (
       <form className="RegistrationForm" onSubmit={this.handleSubmit}>
         <h2>Welcome, let us get to know your motivation:</h2>
-        <input type="checkbox" name="interest">
-          Interest 1
-        </input>
+        <div>
+          <input type="checkbox" name="interest" value="Cooking" />
+          <label htmlFor="interest">Cooking</label>
+          <br />
+          <input type="checkbox" name="interest"></input>
+          <label htmlFor="interest">Exercise</label>
+          <br />
+          <input type="checkbox" name="interest"></input>
+          <label htmlFor="interest">Food Nutrition</label>
+          <br />
+          <input type="checkbox" name="interest"></input>
+          <label htmlFor="interest">Metabolism</label>
+          <br />
+        </div>
         <br />
-        <input type="checkbox" name="interest">
-          Interest 2
-        </input>
-        <br />
-        <input type="radio" name="interest">
-          Interest 3
-        </input>
-        <br />
-        <input type="radio" name="interest">
-          Interest 4
-        </input>
-        <br />
-        <input type="radio" name="interest">
-          Interest 5
-        </input>
-        <br />
-        <button type="submit">Sign Up!</button>
+        <button type="submit">Get Started!</button>
       </form>
     );
   }

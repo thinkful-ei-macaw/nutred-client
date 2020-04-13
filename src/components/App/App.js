@@ -3,6 +3,7 @@ import Header from "../Headers/Header";
 import LandingPage from "../LandingPage/LandingPage";
 import RegisterPage from "../Register/Register";
 import InterestPage from "../Interest/InterestPage";
+import BiometricGather from "../Biometric/Biometricgather";
 import { Route, Switch } from "react-router-dom";
 // import "./App.css";
 
@@ -25,6 +26,7 @@ class App extends React.Component {
             <Route exact path={"/"} component={LandingPage} />
             <Route path={"/register"} component={RegisterPage} />
             <Route path={"/gatherinfo"} component={InterestPage} />
+            <Route path={"/biometricgather"} component={BiometricGather} />
           </Switch>
         </section>
       </main>
