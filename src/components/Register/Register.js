@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AuthApiService from "../../services/auth-api-service";
 // import { Button, Input, Required } from "../Utils/Utils";
 
 export default class RegistrationPage extends Component {
@@ -20,8 +21,16 @@ export default class RegistrationPage extends Component {
     ev.preventDefault();
     const { full_name, age, user_name, password } = ev.target;
 
-    console.log("registration form submitted");
-    console.log({ full_name, age, user_name, password });
+    // console.log("registration form submitted");
+    // console.log({ full_name, age, user_name, password });
+
+    this.setState({ error: null });
+    AuthApiService.postUser({
+      full_name: full_name.value,
+      user_name: user_name.value,
+      password: password.value,
+      age: age.value,
+    });
 
     full_name.value = "";
     age.value = "";

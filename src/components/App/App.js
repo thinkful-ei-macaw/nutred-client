@@ -5,6 +5,7 @@ import RegisterPage from "../Register/Register";
 import InterestPage from "../Interest/InterestPage";
 import BiometricGather from "../Biometric/Biometricgather";
 import { Route, Switch } from "react-router-dom";
+import Login from "../Login/Login";
 // import "./App.css";
 
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Route path={"/register"} component={RegisterPage} />
             <Route path={"/gatherinfo"} component={InterestPage} />
             <Route path={"/biometricgather"} component={BiometricGather} />
+            <Route path={"/login"} component={Login} />
           </Switch>
         </section>
       </main>
