@@ -1,11 +1,12 @@
-import React from "react";
-import { config } from "../../config";
+import config from "../config";
 
-export default class TokenService extends React.Component {
+const TokenService = {
   makeBasicAuthToken(userName, password) {
     return window.btoa(`${userName}:${password}`);
-  }
+  },
   saveAuthToken(token) {
     window.localStorage.setItem(config.TOKEN_KEY, token);
-  }
-}
+  },
+};
+
+export default TokenService;
