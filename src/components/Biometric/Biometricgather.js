@@ -14,23 +14,21 @@ export default class BiometricGather extends Component {
 
   handleBiometricSuccess = (user) => {
     const { history } = this.props;
-    history.push("/login");
+    history.push("/dashboard");
   };
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { height, bodytype, weight, activity } = ev.target;
+    const { height, weight, activity } = ev.target;
     const payload = {
       height: height.value,
       user_weight: weight.value,
       activity: activity.value,
     };
-
+    console.log("Biometric form submitted");
+    console.log(payload);
     AuthApiService.postBiometrics(payload)
       .then((res) => {
-        console.log("Biometric form submitted");
-        console.log({ height, bodytype, weight, activity });
-
         height.value = "";
         weight.value = "";
         activity.value = "";
@@ -46,7 +44,7 @@ export default class BiometricGather extends Component {
     return (
       <form className="BiometricForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
-        <div className="height">
+        <div className="heightbox">
           <label htmlFor="BiometricForm__height" required>
             Height
           </label>

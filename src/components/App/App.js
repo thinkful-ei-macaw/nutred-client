@@ -4,8 +4,10 @@ import LandingPage from "../LandingPage/LandingPage";
 import RegisterPage from "../Register/Register";
 import InterestPage from "../Interest/InterestPage";
 import BiometricGather from "../Biometric/Biometricgather";
-import { Route, Switch } from "react-router-dom";
+import { Switch } from "react-router-dom";
 import Login from "../Login/Login";
+import PrivateRoute from "../../Utils/PrivateRoute";
+import PublicOnlyRoute from "../../Utils/PublicOnlyRoute";
 // import "./App.css";
 
 class App extends React.Component {
@@ -24,11 +26,15 @@ class App extends React.Component {
         </header>
         <section>
           <Switch>
-            <Route exact path={"/"} component={LandingPage} />
-            <Route path={"/register"} component={RegisterPage} />
-            <Route path={"/login"} component={Login} />
-            <Route path={"/gatherinfo"} component={InterestPage} />
-            <Route path={"/biometricgather"} component={BiometricGather} />
+            <PublicOnlyRoute exact path={"/"} component={LandingPage} />
+            <PublicOnlyRoute path={"/register"} component={RegisterPage} />
+            <PublicOnlyRoute path={"/login"} component={Login} />
+            <PrivateRoute path={"/gatherinfo"} component={InterestPage} />
+            <PrivateRoute
+              path={"/biometricgather"}
+              component={BiometricGather}
+            />
+            {/* // <PrivateRoute path={"/dashboard"} component={Dashboard} /> */}
           </Switch>
         </section>
       </main>

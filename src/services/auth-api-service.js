@@ -1,4 +1,5 @@
 import config from "../config";
+import TOKEN_SERVICE from "../services/token-service";
 
 const AuthApiService = {
   postUser(user) {
@@ -27,7 +28,7 @@ const AuthApiService = {
     return fetch(`${config.API_ENDPOINT}/interests`, {
       method: "POST",
       headers: {
-        "content-type": "applicaiton/json",
+        "content-type": "application/json",
         Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
       },
       body: JSON.stringify(interests),
@@ -36,13 +37,17 @@ const AuthApiService = {
     );
   },
   postBiometrics(interests) {
-    return fetch(`${config.API_ENDPOINT}/interests`, {
+    return fetch(`${config.API_ENDPOINT}/biometrics`, {
       method: "POST",
       headers: {
-        "content-type": "applicaiton/json",
+        "content-type": "application/json",
         Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
       },
-      body: JSON.stringify(interests),
+      body: JSON.stringify({
+        height: interests.height,
+        user_weight: interests.user_weight,
+        activity: interests.activity,
+      }),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
