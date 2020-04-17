@@ -2,7 +2,7 @@ import config from "../config";
 
 const AuthApiService = {
   postUser(user) {
-    return fetch(`${config.API_ENDPOINT}/api/users`, {
+    return fetch(`${config.API_ENDPOINT}/users`, {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -19,6 +19,30 @@ const AuthApiService = {
         "content-type": "application/json",
       },
       body: JSON.stringify(credentials),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  postInterests(interests) {
+    return fetch(`${config.API_ENDPOINT}/interests`, {
+      method: "POST",
+      headers: {
+        "content-type": "applicaiton/json",
+        Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
+      },
+      body: JSON.stringify(interests),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+  postBiometrics(interests) {
+    return fetch(`${config.API_ENDPOINT}/interests`, {
+      method: "POST",
+      headers: {
+        "content-type": "applicaiton/json",
+        Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
+      },
+      body: JSON.stringify(interests),
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

@@ -26,9 +26,9 @@ class App extends React.Component {
           <Switch>
             <Route exact path={"/"} component={LandingPage} />
             <Route path={"/register"} component={RegisterPage} />
+            <Route path={"/login"} component={Login} />
             <Route path={"/gatherinfo"} component={InterestPage} />
             <Route path={"/biometricgather"} component={BiometricGather} />
-            <Route path={"/login"} component={Login} />
           </Switch>
         </section>
       </main>

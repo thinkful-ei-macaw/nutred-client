@@ -45,8 +45,8 @@ export default class RegistrationPage extends Component {
       <form className="RegistrationForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="full_name">
-          <label htmlFor="RegistrationForm__full_name">
-            Full name <required />
+          <label htmlFor="RegistrationForm__full_name" required>
+            Full name
           </label>
           <input
             name="full_name"
@@ -56,8 +56,8 @@ export default class RegistrationPage extends Component {
           ></input>
         </div>
         <div className="user_name">
-          <label htmlFor="RegistrationForm__user_name">
-            User name <required />
+          <label htmlFor="RegistrationForm__user_name" required>
+            User name
           </label>
           <input
             name="user_name"
@@ -67,8 +67,8 @@ export default class RegistrationPage extends Component {
           ></input>
         </div>
         <div className="password">
-          <label htmlFor="RegistrationForm__password">
-            Password <required />
+          <label htmlFor="RegistrationForm__password" required>
+            Password
           </label>
           <input
             name="password"

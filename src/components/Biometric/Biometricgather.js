@@ -1,7 +1,8 @@
 import React, { Component } from "react";
+import AuthApiService from "../../services/auth-api-service";
 // import { Button, Input, Required } from "../Utils/Utils";
 
-export default class BiometricPbodytype extends Component {
+export default class BiometricGather extends Component {
   static defaultProps = {
     onBiometricSuccess: () => {},
     history: {
@@ -19,15 +20,25 @@ export default class BiometricPbodytype extends Component {
   handleSubmit = (ev) => {
     ev.preventDefault();
     const { height, bodytype, weight, activity } = ev.target;
+    const payload = {
+      height: height.value,
+      user_weight: weight.value,
+      activity: activity.value,
+    };
 
-    console.log("Biometric form submitted");
-    console.log({ height, bodytype, weight, activity });
+    AuthApiService.postBiometrics(payload)
+      .then((res) => {
+        console.log("Biometric form submitted");
+        console.log({ height, bodytype, weight, activity });
 
-    height.value = "";
-    bodytype.value = "";
-    weight.value = "";
-    activity.value = "";
-    this.handleBiometricSuccess();
+        height.value = "";
+        weight.value = "";
+        activity.value = "";
+        this.handleBiometricSuccess();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {
@@ -36,8 +47,8 @@ export default class BiometricPbodytype extends Component {
       <form className="BiometricForm" onSubmit={this.handleSubmit}>
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="height">
-          <label htmlFor="BiometricForm__height">
-            Height <required />
+          <label htmlFor="BiometricForm__height" required>
+            Height
           </label>
           <input
             name="height"
@@ -47,8 +58,8 @@ export default class BiometricPbodytype extends Component {
           ></input>
         </div>
         <div className="weight">
-          <label htmlFor="BiometricForm__weight">
-            weight <required />
+          <label htmlFor="BiometricForm__weight" required>
+            weight
           </label>
           <input
             name="weight"
@@ -58,8 +69,8 @@ export default class BiometricPbodytype extends Component {
           ></input>
         </div>
         <div className="activity">
-          <label htmlFor="BiometricForm__activity">
-            activity <required />
+          <label htmlFor="BiometricForm__activity" required>
+            activity
           </label>
           <input
             name="activity"
@@ -68,7 +79,7 @@ export default class BiometricPbodytype extends Component {
             id="BiometricForm__activity"
           ></input>
         </div>
-        <div className="bodytype">
+        {/* <div className="bodytype">
           <label htmlFor="BiometricForm__bodytype">bodytype</label>
           <input
             name="bodytype"
@@ -76,7 +87,7 @@ export default class BiometricPbodytype extends Component {
             required
             id="BiometricForm__bodytype"
           ></input>
-        </div>
+        </div> */}
         <button type="submit">To Dashboard</button>
       </form>
     );

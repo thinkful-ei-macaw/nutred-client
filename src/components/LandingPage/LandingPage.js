@@ -15,7 +15,10 @@ export default class LandingPage extends React.Component {
           improve everday activities and make life long health changes
         </h3>
         <Link to={`/register`} className="begin-app">
-          Begin!
+          Register
+        </Link>
+        <Link to={`/login`} className="begin-app">
+          Login
         </Link>
       </section>
     );
