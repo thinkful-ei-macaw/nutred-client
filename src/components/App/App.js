@@ -8,6 +8,7 @@ import { Switch } from "react-router-dom";
 import Login from "../Login/Login";
 import PrivateRoute from "../../Utils/PrivateRoute";
 import PublicOnlyRoute from "../../Utils/PublicOnlyRoute";
+import Dashboard from "../Dashboard/Dashboard";
 // import "./App.css";
 
 class App extends React.Component {
@@ -34,7 +35,7 @@ class App extends React.Component {
               path={"/biometricgather"}
               component={BiometricGather}
             />
-            {/* // <PrivateRoute path={"/dashboard"} component={Dashboard} /> */}
+            <PrivateRoute path={"/dashboard"} component={Dashboard} />
           </Switch>
         </section>
       </main>

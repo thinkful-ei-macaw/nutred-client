@@ -19,7 +19,7 @@ export default class RegistrationPage extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { full_name, age, user_name, password } = ev.target;
+    const { full_name, user_name, password } = ev.target;
 
     // console.log("registration form submitted");
     // console.log({ full_name, age, user_name, password });
@@ -29,11 +29,9 @@ export default class RegistrationPage extends Component {
       full_name: full_name.value,
       user_name: user_name.value,
       password: password.value,
-      age: age.value,
     });
 
     full_name.value = "";
-    age.value = "";
     user_name.value = "";
     password.value = "";
     this.handleRegistrationSuccess();
@@ -77,15 +75,7 @@ export default class RegistrationPage extends Component {
             id="RegistrationForm__password"
           ></input>
         </div>
-        <div className="nick_name">
-          <label htmlFor="RegistrationForm__age">Age</label>
-          <input
-            name="age"
-            type="text"
-            required
-            id="RegistrationForm__age"
-          ></input>
-        </div>
+
         <button type="submit">Register</button>
       </form>
     );

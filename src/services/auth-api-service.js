@@ -1,5 +1,5 @@
 import config from "../config";
-import TOKEN_SERVICE from "../services/token-service";
+// import TOKEN_SERVICE from "../services/token-service";
 
 const AuthApiService = {
   postUser(user) {
@@ -47,7 +47,21 @@ const AuthApiService = {
         height: interests.height,
         user_weight: interests.user_weight,
         activity: interests.activity,
+        gender: interests.gender,
+        age: interests.age,
       }),
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
+
+  getBiometrics() {
+    return fetch(`${config.API_ENDPOINT}/biometrics`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
+      },
     }).then((res) =>
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );

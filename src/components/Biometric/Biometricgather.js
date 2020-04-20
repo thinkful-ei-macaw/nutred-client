@@ -19,11 +19,13 @@ export default class BiometricGather extends Component {
 
   handleSubmit = (ev) => {
     ev.preventDefault();
-    const { height, weight, activity } = ev.target;
+    const { height, weight, activity, gender, age } = ev.target;
     const payload = {
       height: height.value,
       user_weight: weight.value,
       activity: activity.value,
+      gender: gender.value,
+      age: age.value,
     };
     console.log("Biometric form submitted");
     console.log(payload);
@@ -32,6 +34,8 @@ export default class BiometricGather extends Component {
         height.value = "";
         weight.value = "";
         activity.value = "";
+        gender.value = "";
+        age.value = "";
         this.handleBiometricSuccess();
       })
       .catch((res) => {
@@ -77,15 +81,24 @@ export default class BiometricGather extends Component {
             id="BiometricForm__activity"
           ></input>
         </div>
-        {/* <div className="bodytype">
-          <label htmlFor="BiometricForm__bodytype">bodytype</label>
+        <div className="age">
+          <label htmlFor="RegistrationForm__age">Age</label>
           <input
-            name="bodytype"
+            name="age"
             type="text"
             required
-            id="BiometricForm__bodytype"
+            id="RegistrationForm__age"
           ></input>
-        </div> */}
+        </div>
+        <div className="gender">
+          <label htmlFor="BiometricForm__gender">Gender</label>
+          <input
+            name="gender"
+            type="text"
+            required
+            id="BiometricForm__gender"
+          ></input>
+        </div>
         <button type="submit">To Dashboard</button>
       </form>
     );
