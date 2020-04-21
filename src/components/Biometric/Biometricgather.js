@@ -50,7 +50,7 @@ export default class BiometricGather extends Component {
         <div role="alert">{error && <p className="red">{error}</p>}</div>
         <div className="heightbox">
           <label htmlFor="BiometricForm__height" required>
-            Height
+            Height (Please use cm)
           </label>
           <input
             name="height"
@@ -61,7 +61,7 @@ export default class BiometricGather extends Component {
         </div>
         <div className="weight">
           <label htmlFor="BiometricForm__weight" required>
-            weight
+            weight (Please use kg)
           </label>
           <input
             name="weight"
@@ -74,12 +74,18 @@ export default class BiometricGather extends Component {
           <label htmlFor="BiometricForm__activity" required>
             activity
           </label>
-          <input
+          <select
             name="activity"
             type="activity"
             required
             id="BiometricForm__activity"
-          ></input>
+          >
+            <option value="1">Limited Activity</option>
+            <option value="2">Light Activity</option>
+            <option value="3">Medium Activity</option>
+            <option value="4">Heavy Activity</option>
+            <option value="5">Extreme Activity</option>
+          </select>
         </div>
         <div className="age">
           <label htmlFor="RegistrationForm__age">Age</label>
@@ -92,12 +98,10 @@ export default class BiometricGather extends Component {
         </div>
         <div className="gender">
           <label htmlFor="BiometricForm__gender">Gender</label>
-          <input
-            name="gender"
-            type="text"
-            required
-            id="BiometricForm__gender"
-          ></input>
+          <select name="gender" type="text" required id="BiometricForm__gender">
+            <option value="male">male</option>
+            <option value="female">female</option>
+          </select>
         </div>
         <button type="submit">To Dashboard</button>
       </form>

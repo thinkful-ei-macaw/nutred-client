@@ -14,7 +14,7 @@ export default class RegistrationPage extends Component {
 
   handleRegistrationSuccess = (user) => {
     const { history } = this.props;
-    history.push("/gatherinfo");
+    history.push("/biometricgather");
   };
 
   handleSubmit = (ev) => {
@@ -29,12 +29,16 @@ export default class RegistrationPage extends Component {
       full_name: full_name.value,
       user_name: user_name.value,
       password: password.value,
-    });
-
-    full_name.value = "";
-    user_name.value = "";
-    password.value = "";
-    this.handleRegistrationSuccess();
+    })
+      .then((res) => {
+        full_name.value = "";
+        user_name.value = "";
+        password.value = "";
+        this.handleRegistrationSuccess();
+      })
+      .catch((res) => {
+        this.setState({ error: res.error });
+      });
   };
 
   render() {

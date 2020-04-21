@@ -1,7 +1,8 @@
 import React from "react";
+import "./Header.css";
 
 export default class Header extends React.Component {
   render() {
-    return <h1>Nutred</h1>;
+    return <h1>Nuutred</h1>;
   }
 }

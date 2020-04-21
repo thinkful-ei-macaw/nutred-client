@@ -9,6 +9,7 @@ import Login from "../Login/Login";
 import PrivateRoute from "../../Utils/PrivateRoute";
 import PublicOnlyRoute from "../../Utils/PublicOnlyRoute";
 import Dashboard from "../Dashboard/Dashboard";
+import Charts from "../Charts/Charts";
 // import "./App.css";
 
 class App extends React.Component {
@@ -30,12 +31,13 @@ class App extends React.Component {
             <PublicOnlyRoute exact path={"/"} component={LandingPage} />
             <PublicOnlyRoute path={"/register"} component={RegisterPage} />
             <PublicOnlyRoute path={"/login"} component={Login} />
-            <PrivateRoute path={"/gatherinfo"} component={InterestPage} />
+            {/* <PrivateRoute path={"/gatherinfo"} component={InterestPage} /> */}
             <PrivateRoute
               path={"/biometricgather"}
               component={BiometricGather}
             />
             <PrivateRoute path={"/dashboard"} component={Dashboard} />
+            <PrivateRoute path={"/charts"} component={Charts} />
           </Switch>
         </section>
       </main>
