@@ -66,5 +66,17 @@ const AuthApiService = {
       !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
     );
   },
+
+  getWeights() {
+    return fetch(`${config.API_ENDPOINT}/biometrics/weights`, {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem(config.TOKEN_KEY)}`,
+      },
+    }).then((res) =>
+      !res.ok ? res.json().then((e) => Promise.reject(e)) : res.json()
+    );
+  },
 };
 export default AuthApiService;

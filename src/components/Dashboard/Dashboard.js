@@ -139,6 +139,7 @@ export default class Dashboard extends React.Component {
           <p>{this.state.basal}</p>
         </div>
         <Link to="/charts">Caloric Charts</Link>
+        <Link to="/graphs">Weight Graph</Link>
       </section>
     );
   }

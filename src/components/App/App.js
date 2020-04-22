@@ -10,6 +10,7 @@ import PrivateRoute from "../../Utils/PrivateRoute";
 import PublicOnlyRoute from "../../Utils/PublicOnlyRoute";
 import Dashboard from "../Dashboard/Dashboard";
 import Charts from "../Charts/Charts";
+import Graphs from "../Graphs/Graphs";
 // import "./App.css";
 
 class App extends React.Component {
@@ -38,6 +39,7 @@ class App extends React.Component {
             />
             <PrivateRoute path={"/dashboard"} component={Dashboard} />
             <PrivateRoute path={"/charts"} component={Charts} />
+            <PrivateRoute path={"/graphs"} component={Graphs} />
           </Switch>
         </section>
       </main>
