@@ -9,6 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "recharts";
+import "./Graphs.css";
 
 export default class Graphs extends React.Component {
   state = {
@@ -18,44 +19,40 @@ export default class Graphs extends React.Component {
 
   componentDidMount() {
     AuthApiService.getWeights().then((res) => {
+      const newData = res.map((data) => {
+        return {
+          name: new Date(data.date_created).toLocaleString("en-US", {
+            dateStyle: "short",
+          }),
+          weight: data.user_weight,
+        };
+      });
       this.setState({
         weights: res,
+        weightsData: newData,
       });
     });
   }
 
-  fillInData() {
-    this.weights.map((data) => {
-      return {
-        name: data.date_created,
-        pv: data.user_weight,
-      };
-    });
-  }
   render() {
     return (
       <LineChart
+        className="Graph"
         width={600}
         height={300}
-        data={this.state.weights.map((data) => {
-          return {
-            name: data.date_created,
-            pv: data.user_weight,
-          };
-        })}
+        data={this.state.weightsData}
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-        <YAxis />
+        <YAxis type="weight" domain={[50, 200]} />
         <Tooltip />
-        <Legend />
+
         <Line
           type="monotone"
-          dataKey="pv"
+          dataKey="weight"
           stroke="#8884d8"
           activeDot={{ r: 8 }}
         />
-        <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
       </LineChart>
     );
   }

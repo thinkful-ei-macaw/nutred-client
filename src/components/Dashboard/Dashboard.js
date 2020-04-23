@@ -2,6 +2,7 @@ import React from "react";
 import AuthApiService from "../../services/auth-api-service";
 //import { Redirect } from 'react-router-dom'
 import { Link } from "react-router-dom";
+import "./Dashboard.css";
 
 export default class Dashboard extends React.Component {
   // componentDidMount(
@@ -55,11 +56,13 @@ export default class Dashboard extends React.Component {
         gain: bmr + 500,
       });
     } else {
-      const bmr =
+      const bmr = Math.round(
         this.state.biometrics.height * 6.25 +
-        this.state.biometrics.user_weight * 9.99 -
-        this.state.biometrics.age * 4.92 -
-        161;
+          this.state.biometrics.user_weight * 9.99 -
+          this.state.biometrics.age * 4.92 -
+          161
+      );
+
       this.setState({
         basal: bmr,
         loss: bmr - 500,
@@ -129,8 +132,8 @@ export default class Dashboard extends React.Component {
       <section>
         <div className="user-stats">
           <h3>Your Stats:</h3>
-          <p>Height: {this.state.biometrics.height}</p>
-          <p>Weight: {this.state.biometrics.user_weight}</p>
+          <p>Height: {this.state.biometrics.height}cm</p>
+          <p>Weight: {this.state.biometrics.user_weight}kg</p>
           <p>Activity Level: {this.state.biometrics.activity}</p>
         </div>
         <button onClick={this.handleEdit}>Update Weight</button>
@@ -138,8 +141,6 @@ export default class Dashboard extends React.Component {
           <h3>Estimated daily caloric expenditure:</h3>
           <p>{this.state.basal}</p>
         </div>
-        <Link to="/charts">Caloric Charts</Link>
-        <Link to="/graphs">Weight Graph</Link>
       </section>
     );
   }

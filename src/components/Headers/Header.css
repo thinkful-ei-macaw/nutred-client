@@ -1,0 +1,22 @@
+h1 {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  color: white;
+}
+
+.header {
+  /* position: fixed; */
+  flex-direction: column;
+  margin-bottom: 3em;
+  padding-top: 60px;
+
+  width: fill;
+}
+.nav {
+  display: inline-block;
+}
+
+a {
+  margin-right: 3px;
+  height: fit-content;
+  display: inline-block;
+}

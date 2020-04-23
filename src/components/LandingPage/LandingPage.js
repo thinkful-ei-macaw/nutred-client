@@ -15,14 +15,14 @@ export default class LandingPage extends React.Component {
           In this app we will approach your health and body with science to
           improve everday activities and make life long health changes. After
           submitting a few pieces of information we will provide you with daily
-          recommending caloric intake values. These suggest values will be
-          broken down to the amount of macronutrients required to intake to meet
-          the specific goal you want to pursue for yourself
+          recommended caloric intake values. These suggest values will be broken
+          down to the amount of macronutrients required to intake to meet the
+          specific goal you want to pursue for yourself
         </p>
-        <Link to={`/register`} className="begin-app">
+        <Link className="link" to={`/register`} className="begin-app">
           Register
         </Link>
-        <Link to={`/login`} className="begin-app">
+        <Link className="link" to={`/login`} className="begin-app">
           Login
         </Link>
       </section>

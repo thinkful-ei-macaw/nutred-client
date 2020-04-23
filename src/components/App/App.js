@@ -11,7 +11,7 @@ import PublicOnlyRoute from "../../Utils/PublicOnlyRoute";
 import Dashboard from "../Dashboard/Dashboard";
 import Charts from "../Charts/Charts";
 import Graphs from "../Graphs/Graphs";
-// import "./App.css";
+import "./App.css";
 
 class App extends React.Component {
   state = { hasError: false };
@@ -27,7 +27,7 @@ class App extends React.Component {
         <header>
           <Header />
         </header>
-        <section>
+        <section className="section-app">
           <Switch>
             <PublicOnlyRoute exact path={"/"} component={LandingPage} />
             <PublicOnlyRoute path={"/register"} component={RegisterPage} />

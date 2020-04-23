@@ -1,6 +1,7 @@
 import React from "react";
 import AuthApiService from "../../services/auth-api-service";
 //import { Redirect } from 'react-router-dom'
+import "./Charts.css";
 import { PieChart, Pie, Cell, LabelList } from "recharts";
 
 const labelCreator = (
@@ -91,24 +92,115 @@ export default class Charts extends React.Component {
   }
 
   calculateBasal() {
+    let bmr = 0;
     if (this.state.biometrics.gender === "male") {
-      const bmr = Math.round(
-        this.state.biometrics.height * 6.25 +
-          this.state.biometrics.user_weight * 9.99 -
-          this.state.biometrics.age * 4.92 +
-          5
-      );
+      if (this.state.biometrics.activity === "1") {
+        bmr =
+          1.2 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 +
+              5
+          );
+      }
+      if (this.state.biometrics.activity === "2") {
+        bmr =
+          1.375 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 +
+              5
+          );
+      }
+      if (this.state.biometrics.activity === "3") {
+        bmr =
+          1.55 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 +
+              5
+          );
+      }
+      if (this.state.biometrics.activity === "4") {
+        bmr =
+          1.725 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 +
+              5
+          );
+      }
+      if (this.state.biometrics.activity === "5") {
+        bmr =
+          1.9 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 +
+              5
+          );
+      }
       this.setState({
         basal: bmr,
         loss: bmr - 500,
         gain: bmr + 500,
       });
     } else {
-      const bmr =
-        this.state.biometrics.height * 6.25 +
-        this.state.biometrics.user_weight * 9.99 -
-        this.state.biometrics.age * 4.92 -
-        161;
+      if (this.state.biometrics.activity === "1") {
+        bmr =
+          1.1 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 -
+              161
+          );
+      }
+      if (this.state.biometrics.activity === "2") {
+        bmr =
+          1.275 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 -
+              161
+          );
+      }
+      if (this.state.biometrics.activity === "3") {
+        bmr =
+          1.35 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 -
+              161
+          );
+      }
+      if (this.state.biometrics.activity === "4") {
+        bmr =
+          1.35 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 -
+              161
+          );
+      }
+      if (this.state.biometrics.activity === "5") {
+        bmr =
+          1.525 *
+          Math.round(
+            this.state.biometrics.height * 6.25 +
+              this.state.biometrics.user_weight * 9.99 -
+              this.state.biometrics.age * 4.92 -
+              161
+          );
+      }
+
       this.setState({
         basal: bmr,
         loss: bmr - 500,
@@ -119,15 +211,15 @@ export default class Charts extends React.Component {
 
   calculateRDIs() {
     const caloriePercent = [
-      { name: "Fats", value: 25 },
-      { name: "Carbs", value: 50 },
-      { name: "Protein", value: 25 },
+      { name: "Fats(g)", value: 25 },
+      { name: "Carbs(g)", value: 50 },
+      { name: "Protein(g)", value: 25 },
     ];
 
     const gram2 = [
-      { name: "Fats", value: this.state.basal / 4 / 9 },
-      { name: "Carbs", value: this.state.basal / 2 / 4 },
-      { name: "Protein", value: this.state.basal / 4 / 4 },
+      { name: "Fats(g)", value: this.state.basal / 4 / 9 },
+      { name: "Carbs(g)", value: this.state.basal / 2 / 4 },
+      { name: "Protein(g)", value: this.state.basal / 4 / 4 },
     ];
 
     const lossGrams = [
@@ -169,7 +261,7 @@ export default class Charts extends React.Component {
   render() {
     const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
     return (
-      <section>
+      <section className="Charts">
         <h3>Macronutrient Recommended Daily Intake for different goals</h3>
         <div className="maintence-recommendations">
           <h4>Maintence Goal: {this.state.basal} calories</h4>
@@ -215,9 +307,19 @@ export default class Charts extends React.Component {
               dataKey="value"
               cx={200}
               cy={200}
+              label={(labelprops) =>
+                labelCreator2(this.state.lossData1, labelprops)
+              }
               outerRadius={60}
               fill="#8884d8"
-            />
+            >
+              {this.state.lossData1.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}{" "}
+            </Pie>
             <Pie
               data={this.state.lossData2}
               dataKey="value"
@@ -226,7 +328,9 @@ export default class Charts extends React.Component {
               innerRadius={70}
               outerRadius={90}
               fill="#82ca9d"
-              label
+              label={(labelprops) =>
+                labelCreator(this.state.lossData2, labelprops)
+              }
             />
           </PieChart>
         </div>
@@ -240,7 +344,17 @@ export default class Charts extends React.Component {
               cy={200}
               outerRadius={60}
               fill="#8884d8"
-            />
+              label={(labelprops) =>
+                labelCreator2(this.state.gainData1, labelprops)
+              }
+            >
+              {this.state.data01.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}{" "}
+            </Pie>
             <Pie
               data={this.state.gainData2}
               dataKey="value"
@@ -249,7 +363,9 @@ export default class Charts extends React.Component {
               innerRadius={70}
               outerRadius={90}
               fill="#82ca9d"
-              label
+              label={(labelprops) =>
+                labelCreator(this.state.gainData2, labelprops)
+              }
             />
           </PieChart>
         </div>
@@ -263,7 +379,17 @@ export default class Charts extends React.Component {
               cy={200}
               outerRadius={60}
               fill="#8884d8"
-            />
+              label={(labelprops) =>
+                labelCreator2(this.state.lowCarbData1, labelprops)
+              }
+            >
+              {this.state.data01.map((entry, index) => (
+                <Cell
+                  key={`cell-${index}`}
+                  fill={COLORS[index % COLORS.length]}
+                />
+              ))}{" "}
+            </Pie>
             <Pie
               data={this.state.lowCarbData2}
               dataKey="value"
@@ -272,7 +398,9 @@ export default class Charts extends React.Component {
               innerRadius={70}
               outerRadius={90}
               fill="#82ca9d"
-              label
+              label={(labelprops) =>
+                labelCreator(this.state.lowCarbData2, labelprops)
+              }
             />
           </PieChart>
         </div>
