@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "alias": "bpetit940-nuutred-app",
-  "name": "nuutred-app",
+  "alias": "bpetit940-nuutred",
+  "name": "nuutred",
   "routes": [
     {
       "src": "^/static/(.*)",
