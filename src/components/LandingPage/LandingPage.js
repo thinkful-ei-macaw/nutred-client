@@ -19,6 +19,8 @@ export default class LandingPage extends React.Component {
           down to the amount of macronutrients required to intake to meet the
           specific goal you want to pursue for yourself
         </p>
+        <div></div>
+        <p>Demo user: bpetit Password: P@ssw0rd</p>
         <Link className="link" to={`/register`} className="begin-app">
           Register
         </Link>
