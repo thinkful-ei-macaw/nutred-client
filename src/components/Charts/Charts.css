@@ -1,3 +1,10 @@
 .Charts {
-  flex-direction: row;
+  display: flex;
+  flex-direction: column;
+  width: 95vw;
+  overflow-x: scroll;
+  overflow-y: auto;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
 }

@@ -6,6 +6,7 @@ import {
   XAxis,
   YAxis,
   CartesianGrid,
+  ResponsiveContainer,
   Tooltip,
   Legend,
 } from "recharts";
@@ -36,24 +37,23 @@ export default class Graphs extends React.Component {
 
   render() {
     return (
-      <LineChart
-        className="Graph"
-        width={600}
-        height={300}
-        data={this.state.weightsData}
-      >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-        <YAxis type="weight" domain={[50, 200]} />
-        <Tooltip />
+      <div style={{ width: "calc(100vw - 20px)", height: 300 }}>
+        <ResponsiveContainer>
+          <LineChart className="Graph" data={this.state.weightsData}>
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
+            <YAxis name="Kilograms" type="number" domain={[50, 150]} />
+            <Tooltip />
 
-        <Line
-          type="monotone"
-          dataKey="weight"
-          stroke="#8884d8"
-          activeDot={{ r: 8 }}
-        />
-      </LineChart>
+            <Line
+              type="monotone"
+              dataKey="weight"
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
+          </LineChart>
+        </ResponsiveContainer>
+      </div>
     );
   }
 }

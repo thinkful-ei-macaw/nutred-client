@@ -43,25 +43,94 @@ export default class Dashboard extends React.Component {
   }
 
   calculateBasal() {
+    let bmr = 0;
     if (this.state.biometrics.gender === "male") {
-      const bmr = Math.round(
-        this.state.biometrics.height * 6.25 +
-          this.state.biometrics.user_weight * 9.99 -
-          this.state.biometrics.age * 4.92 +
-          5
-      );
+      if (this.state.biometrics.activity === "1") {
+        bmr = Math.round(
+          1.2 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 +
+            5
+        );
+      }
+      if (this.state.biometrics.activity === "2") {
+        bmr = Math.round(
+          1.375 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 +
+            5
+        );
+      }
+      if (this.state.biometrics.activity === "3") {
+        bmr = Math.round(
+          1.55 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 +
+            5
+        );
+      }
+      if (this.state.biometrics.activity === "4") {
+        bmr = Math.round(
+          1.725 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 +
+            5
+        );
+      }
+      if (this.state.biometrics.activity === "5") {
+        bmr = Math.round(
+          1.9 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 +
+            5
+        );
+      }
       this.setState({
         basal: bmr,
         loss: bmr - 500,
         gain: bmr + 500,
       });
     } else {
-      const bmr = Math.round(
-        this.state.biometrics.height * 6.25 +
-          this.state.biometrics.user_weight * 9.99 -
-          this.state.biometrics.age * 4.92 -
-          161
-      );
+      if (this.state.biometrics.activity === "1") {
+        bmr = Math.round(
+          1.1 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 -
+            161
+        );
+      }
+      if (this.state.biometrics.activity === "2") {
+        bmr = Math.round(
+          1.275 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 -
+            161
+        );
+      }
+      if (this.state.biometrics.activity === "3") {
+        bmr = Math.round(
+          1.35 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 -
+            161
+        );
+      }
+      if (this.state.biometrics.activity === "4") {
+        bmr = Math.round(
+          1.35 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 -
+            161
+        );
+      }
+      if (this.state.biometrics.activity === "5") {
+        bmr = Math.round(
+          1.525 * this.state.biometrics.height * 6.25 +
+            this.state.biometrics.user_weight * 9.99 -
+            this.state.biometrics.age * 4.92 -
+            161
+        );
+      }
 
       this.setState({
         basal: bmr,

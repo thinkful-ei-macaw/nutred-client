@@ -1,3 +1,5 @@
 .Graph {
   overflow-x: auto;
+  width: 325px;
+  height: 300px;
 }
