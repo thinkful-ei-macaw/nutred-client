@@ -3,7 +3,13 @@
   "alias": "bpetit940-nuutred-app",
   "name": "nuutred-app",
   "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    {
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
+      "src": ".*",
+      "dest": "/index.html"
+    }
   ]
 }
