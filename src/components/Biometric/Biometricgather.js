@@ -27,8 +27,7 @@ export default class BiometricGather extends Component {
       gender: gender.value,
       age: age.value,
     };
-    console.log("Biometric form submitted");
-    console.log(payload);
+
     AuthApiService.postBiometrics(payload)
       .then((res) => {
         height.value = "";

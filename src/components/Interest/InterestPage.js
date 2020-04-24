@@ -25,8 +25,7 @@ export default class InterestPage extends React.Component {
       food_nutrition: food_nutrition.checked ? "1" : "0",
       metabolism: metabolism.checked ? "1" : "0",
     };
-    console.log("registration cont form submitted");
-    console.log(payload);
+
     AuthApiService.postInterests(payload)
       .then((res) => {
         this.handleRegistrationContSuccess();

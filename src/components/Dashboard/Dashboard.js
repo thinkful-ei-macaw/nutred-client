@@ -144,57 +144,7 @@ export default class Dashboard extends React.Component {
     this.setState({
       editing: true,
     });
-    console.log("sucess");
   };
-
-  // calculateRDIs() {
-  //   const caloriePercent = [
-  //     { name: "Fats", value: 25 },
-  //     { name: "Carbs", value: 50 },
-  //     { name: "Protein", value: 25 },
-  //   ];
-
-  //   const gram2 = [
-  //     { name: "Fats", value: this.state.basal / 4 / 9 },
-  //     { name: "Carbs", value: this.state.basal / 2 / 4 },
-  //     { name: "Protein", value: this.state.basal / 4 / 4 },
-  //   ];
-
-  //   const lossGrams = [
-  //     { name: "Fats", value: this.state.loss / 4 / 9 },
-  //     { name: "Carbs", value: this.state.loss / 2 / 4 },
-  //     { name: "Protein", value: this.state.loss / 4 / 4 },
-  //   ];
-
-  //   const gainGrams = [
-  //     { name: "Fats", value: this.state.gain / 4 / 9 },
-  //     { name: "Carbs", value: this.state.gain / 2 / 4 },
-  //     { name: "Protein", value: this.state.gain / 4 / 4 },
-  //   ];
-
-  //   const lowCarbCaloriePercent = [
-  //     { name: "Fats", value: 30 },
-  //     { name: "Carbs", value: 25 },
-  //     { name: "Protein", value: 45 },
-  //   ];
-
-  //   const lowCarbGrams = [
-  //     { name: "Fats", value: this.state.basal / 3 / 9 },
-  //     { name: "Carbs", value: this.state.basal / 4 / 4 },
-  //     { name: "Protein", value: this.state.basal / 4.5 / 4 },
-  //   ];
-
-  //   this.setState({
-  //     data01: caloriePercent,
-  //     data02: gram2,
-  //     lossData1: caloriePercent,
-  //     lossData2: lossGrams,
-  //     gainData1: caloriePercent,
-  //     gainData2: gainGrams,
-  //     lowCarbData1: lowCarbCaloriePercent,
-  //     lowCarbData2: lowCarbGrams,
-  //   });
-  // }
 
   editingFalse() {
     return (
