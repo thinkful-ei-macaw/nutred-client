@@ -7,7 +7,7 @@ Test user: username: test; password: P@ssw0rd
 ### API Docs:
 
 - POST /auth/login
-  - POST https://sheltered-stream-40763.herokuapp.com/api/auth/login
+  - https://sheltered-stream-40763.herokuapp.com/api/auth/login
   - allows users to login to their account
 - POST
   - https://sheltered-stream-40763.herokuapp.com/api/users
@@ -31,3 +31,24 @@ Test user: username: test; password: P@ssw0rd
 - The user can see 4 seperate goal charts for different diet endpoints, each with percentages of CHO, PRO, and FATS, as well as an adjusted BMR. Additionally, this break down includes the total number of grams of macronutrient are required to meet that daily goal.
 - The user can update their weight on the dashboard
 - The user can track on a line graph how their progress in weight has changed overtime
+
+### Screenshots
+
+![Landing](/images/NuutredLanding.png "Optional Title")
+![Login](/images/NDlogin.png "Optional Title")
+![biometric](/images/NDbiometricgather.png "Optional Title")
+![dashboard](/images/NDdashboard.png "Optional Title")
+![update](/images/NDupdateweight.png "Optional Title")
+![weightgraph](/images/NDweightgraph.png "Optional Title")
+![caloric charts](/images/NDcaloricchart.png "Optional Title")
+
+### Tech Used
+
+- ReactJS
+- Postgres
+- SQL
+- HTML
+- JSX
+- CSS
+- NodeJS
+- Express
