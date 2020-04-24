@@ -4,7 +4,8 @@
   "name": "nuutred-app",
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "^/static/(.*)",
+      "dest": "/static/$1"
     },
     {
       "src": "/.*",
