@@ -1,8 +1,10 @@
 ### NuutrEd
 
-Live app: https://nutred-client.now.sh
-Live serer: https://sheltered-stream-40763.herokuapp.com/
-Test user: username: Test; password: P@ssw0rd
+- Live app: https://nuutred.now.sh
+- Live serer: https://sheltered-stream-40763.herokuapp.com/
+- Test user:
+  - username: Test
+  - password: P@ssw0rd
 
 ### API Docs:
 
@@ -34,13 +36,13 @@ Test user: username: Test; password: P@ssw0rd
 
 ### Screenshots
 
-![Landing](/images/NuutredLanding.png "Optional Title")
-![Login](/images/NDlogin.png "Optional Title")
-![biometric](/images/NDbiometricgather.png "Optional Title")
-![dashboard](/images/NDdashboard.png "Optional Title")
-![update](/images/NDupdateweight.png "Optional Title")
-![weightgraph](/images/NDweightgraph.png "Optional Title")
-![caloric charts](/images/NDcaloricchart.png "Optional Title")
+![Landing](/images/NuutredLanding.PNG "Optional Title")
+![Login](/images/NDlogin.PNG "Optional Title")
+![biometric](/images/NDbiometricgather.PNG "Optional Title")
+![dashboard](/images/NDdashboard.PNG "Optional Title")
+![update](/images/NDupdateweight.PNG "Optional Title")
+![weightgraph](/images/NDweightgraph.PNG "Optional Title")
+![caloric charts](/images/NDcaloricchart.PNG "Optional Title")
 
 ### Tech Used
 
