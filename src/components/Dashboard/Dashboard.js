@@ -1,35 +1,14 @@
 import React from "react";
 import AuthApiService from "../../services/auth-api-service";
-//import { Redirect } from 'react-router-dom'
-import { Link } from "react-router-dom";
 import "./Dashboard.css";
 
 export default class Dashboard extends React.Component {
-  // componentDidMount(
-  //     //fetch call
-  //     //store in context? state for now
-  // )
-
-  // render() {
-  //     if(// biometrics = [] in state)
-  //     // render redirect to /login
-  //     else return `jsx`
-  // }
-
   state = {
     biometrics: [],
     basal: "",
     loss: "",
     gain: "",
     editing: false,
-    // data01: [],
-    // data02: [],
-    // lossData1: [],
-    // lossData2: [],
-    // gainData1: [],
-    // gainData2: [],
-    // lowCarbData1: [],
-    // lowCarbData2: [],
   };
 
   componentDidMount() {
@@ -38,7 +17,6 @@ export default class Dashboard extends React.Component {
         biometrics: res,
       });
       this.calculateBasal();
-      // this.calculateRDIs();
     });
   }
 
@@ -148,7 +126,7 @@ export default class Dashboard extends React.Component {
 
   editingFalse() {
     return (
-      <section>
+      <section className="dashboard">
         <div className="user-stats">
           <h3>Your Stats:</h3>
           <p>Height: {this.state.biometrics.height}cm</p>

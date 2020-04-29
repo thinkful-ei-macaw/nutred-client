@@ -15,9 +15,9 @@ export default class LandingPage extends React.Component {
           In this app we will approach your health and body with science to
           improve everday activities and make life long health changes. After
           submitting a few pieces of information we will provide you with daily
-          recommended caloric intake values. These suggest values will be broken
-          down to the amount of macronutrients required to intake to meet the
-          specific goal you want to pursue for yourself
+          recommended caloric intake values. These suggested values will be
+          broken down to the amount of macronutrients required to intake to meet
+          the specific goal you want to pursue for yourself
         </p>
         <div></div>
         <p>Demo user: bpetit Password: P@ssw0rd</p>

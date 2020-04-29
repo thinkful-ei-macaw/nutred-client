@@ -2,7 +2,7 @@ import React from "react";
 import AuthApiService from "../../services/auth-api-service";
 //import { Redirect } from 'react-router-dom'
 import "./Charts.css";
-import { PieChart, Pie, Cell, LabelList } from "recharts";
+import { PieChart, Pie, Cell, ResponsiveContainer, LabelList } from "recharts";
 
 const labelCreator = (
   data,
@@ -377,7 +377,7 @@ export default class Charts extends React.Component {
           </div>
           <div className="low-recommendations">
             <h4>low-carb goal: {this.state.basal} calories</h4>
-            <PieChart width={400} height={400}>
+            <PieChart className="test" width={400} height={400}>
               <Pie
                 data={this.state.lowCarbData1}
                 dataKey="value"
@@ -410,29 +410,6 @@ export default class Charts extends React.Component {
               />
             </PieChart>
           </div>
-          {/* <div className="loss-recommendations">
-          <h4>ketogenic goal: Base TDEE with adjusted percentages</h4>
-          <PieChart width={400} height={400}>
-            <Pie
-              data={this.state.data01}
-              dataKey="value"
-              cx={200}
-              cy={200}
-              outerRadius={60}
-              fill="#8884d8"
-            />
-            <Pie
-              data={this.state.data02}
-              dataKey="value"
-              cx={200}
-              cy={200}
-              innerRadius={70}
-              outerRadius={90}
-              fill="#82ca9d"
-              label
-            />
-          </PieChart>
-        </div> */}
         </section>
       </div>
     );

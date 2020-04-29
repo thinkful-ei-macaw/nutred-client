@@ -2,9 +2,26 @@
   display: flex;
   flex-direction: column;
   width: 95vw;
+  font-size: 20px;
   overflow-x: scroll;
   overflow-y: auto;
   margin: auto;
   justify-content: center;
   align-items: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+h4 {
+  font-size: 25px;
+}
+
+@media (min-width: 1024px) {
+  .Charts {
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 15px;
+  }
+  .test {
+    width: 600px;
+  }
 }

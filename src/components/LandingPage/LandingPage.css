@@ -3,6 +3,13 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
-  padding: 10px;
-  border: 2em;
+  padding: 5px;
+}
+
+p {
+  margin: 0;
+}
+
+.app-desc {
+  font-size: 75%;
 }
