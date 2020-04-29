@@ -41,8 +41,17 @@ export default class Graphs extends React.Component {
         <ResponsiveContainer>
           <LineChart className="Graph" data={this.state.weightsData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" padding={{ left: 30, right: 30 }} />
-            <YAxis name="Kilograms" type="number" domain={[50, 150]} />
+            <XAxis
+              fontSize="20px"
+              dataKey="name"
+              padding={{ left: 30, right: 30 }}
+            />
+            <YAxis
+              name="Kilograms"
+              type="number"
+              fontSize="20px"
+              domain={[50, 150]}
+            />
             <Tooltip />
 
             <Line

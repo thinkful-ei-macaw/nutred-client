@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 95vw;
-  font-size: 20px;
+  font-size: 15px;
   overflow-x: scroll;
   overflow-y: auto;
   margin: auto;
@@ -12,16 +12,20 @@
     "Lucida Sans", Arial, sans-serif;
 }
 h4 {
-  font-size: 25px;
+  font-size: 23px;
 }
-
-@media (min-width: 1024px) {
+@media (min-width: 720px) {
   .Charts {
-    flex-direction: row;
-    justify-content: space-evenly;
     padding: 15px;
+    font-size: 18px;
   }
   .test {
     width: 600px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Charts {
+    padding: 15px;
   }
 }
