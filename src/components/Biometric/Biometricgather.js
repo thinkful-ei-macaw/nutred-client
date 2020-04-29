@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import AuthApiService from "../../services/auth-api-service";
-// import { Button, Input, Required } from "../Utils/Utils";
+import "./Biometricgather.css";
 
 export default class BiometricGather extends Component {
   static defaultProps = {

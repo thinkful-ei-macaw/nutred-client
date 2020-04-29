@@ -55,7 +55,11 @@ export default class RegistrationPage extends Component {
           ></input>
         </div>
         <div className="user_name">
-          <label htmlFor="RegistrationForm__user_name" required>
+          <label
+            className="user-label"
+            htmlFor="RegistrationForm__user_name"
+            required
+          >
             User name
           </label>
           <input
@@ -66,7 +70,11 @@ export default class RegistrationPage extends Component {
           ></input>
         </div>
         <div className="password">
-          <label htmlFor="RegistrationForm__password" required>
+          <label
+            className="Registration"
+            htmlFor="RegistrationForm__password"
+            required
+          >
             Password
           </label>
           <input
