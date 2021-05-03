@@ -47,7 +47,7 @@ export default class Graphs extends React.Component {
               padding={{ left: 30, right: 30 }}
             />
             <YAxis
-              name="Kilograms"
+              name="Pounds"
               type="number"
               fontSize="20px"
               domain={[50, 150]}

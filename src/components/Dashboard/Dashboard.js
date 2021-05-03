@@ -130,7 +130,7 @@ export default class Dashboard extends React.Component {
         <div className="user-stats">
           <h3>Your Stats:</h3>
           <p>Height: {this.state.biometrics.height}cm</p>
-          <p>Weight: {this.state.biometrics.user_weight}kg</p>
+          <p>Weight: {this.state.biometrics.user_weight * 2.2}lb</p>
           <p>Activity Level: {this.state.biometrics.activity}</p>
         </div>
         <button onClick={this.handleEdit}>Update Weight</button>
